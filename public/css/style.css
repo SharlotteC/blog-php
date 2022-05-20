@@ -46,6 +46,14 @@ a{
     text-decoration: none;
 }
 
+/* utils */
+.p-20{
+    padding: 20px;
+}
+.p-10{
+    padding: 10px;
+}
+
 /* boutons */
 
 .btn{
@@ -66,6 +74,10 @@ a{
     color: var(--text-color-light);
 }
 
+.btn-secondary{
+    background-color: var(--dark);
+    color: var(--text-color-light);
+}
 
 .btn-danger{
     background-color: var(--danger);
@@ -94,7 +106,8 @@ a{
     display: flex;
     flex-flow: column;
     color:var(--text-color);
-    background-color: #b2bec3;
+    background-color: #d8e3e9;
+    font-family: var(--font-2);
 }
 
 .low_opacity{
@@ -127,23 +140,34 @@ header {
 
 .active {
     background-color: var(--primary-dark);
+    font-family: var(--font-family);
 }
 .logo{
     font-weight: 600;
     font-size: 2rem;
     color:var(--text-color-light);
+    font-family: var(--font-family);
     
 }
 
 .content {
+    max-width: 100rem;
+    width: 100%;
     flex: 1;
     display: flex;
-    flex-flow: row;
-    justify-content: center;
+    flex-flow: column;
+    align-self: center;
+    /* background-color: var(--color-font); */
+    padding: 2rem 0 ;
     align-items: center;
 }
 
-
+.block{
+    border-radius: 3px;
+    border: var(--border);
+    background-color:rgb(221, 228, 232);
+    box-shadow: var(--box-shadow);
+}
 
 /* footer */
 footer {
@@ -154,4 +178,5 @@ footer {
 footer p{
     color: var(--text-color-light);
     padding: 1.5rem;
+    font-family: var(--font-family);
 }
