@@ -4,8 +4,9 @@
 :root{
     --font-family: 'Courgette', 'sans serif';
     --font-2: 'Patrick Hand', 'sans serif';
-    --color-font: #b2bec3;
-    --primary: #aa8ec9;
+    --color-font: #e8f4f9;
+    --primary: #917bab;
+    --primary-dark: #61497c;
     --dark: #304d55;
     --background-light: #dfe4ea;
     --text-color:#2f3542;
@@ -39,6 +40,10 @@ h1 {
 ul {
     list-style-type: none;
     padding: 0;
+}
+a{
+    color: inherit;
+    text-decoration: none;
 }
 
 /* boutons */
@@ -101,8 +106,28 @@ header {
     background-color: var(--primary);
     padding: 1.5rem;
     box-shadow:  var(--box-shadow);
+    color: var(--text-color-light);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.header-menu{
+    margin: 0;
+}
+.header-menu li {
+    border-radius: 3px;
+    padding: 5px 15px;
+    transition: background-color .3s;
+}
+.header-menu li:hover {
+    background-color: var(--primary-dark);
+}
+
+.active {
+    background-color: var(--primary-dark);
+}
 .logo{
     font-weight: 600;
     font-size: 2rem;
