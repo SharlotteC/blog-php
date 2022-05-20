@@ -70,7 +70,7 @@ a{
     box-shadow: var(--box-shadow);
 }
 .btn-primary {
-    background-color: var(--primary) ;
+    background-color: var(--primary-dark) ;
     color: var(--text-color-light);
 }
 
@@ -151,6 +151,7 @@ header {
 }
 
 .content {
+    margin-top: 3rem;
     max-width: 100rem;
     width: 100%;
     flex: 1;
@@ -165,7 +166,7 @@ header {
 .block{
     border-radius: 3px;
     border: var(--border);
-    background-color:rgb(221, 228, 232);
+    background-color:rgb(169, 183, 192);
     box-shadow: var(--box-shadow);
 }
 
