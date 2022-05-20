@@ -5,8 +5,8 @@
     --font-family: 'Courgette', 'sans serif';
     --font-2: 'Patrick Hand', 'sans serif';
     --color-font: #b2bec3;
-    --primary: #636e72;
-    --dark: #2d3436;
+    --primary: #aa8ec9;
+    --dark: #304d55;
     --background-light: #dfe4ea;
     --text-color:#2f3542;
     --text-color-light: #f1f2f6;
@@ -118,54 +118,7 @@ header {
     align-items: center;
 }
 
-.todo-container {
-    padding: 1.5rem;
-    background-color: var(--text-color-light);
-    border: var(--border);
-    border-radius: 3px;
-    min-width: 60rem;
-    min-height: 40rem;
-    box-shadow: var(--box-shadow);
-}
-.todo-container h1 {
-    text-align: center;
-}
 
-.todo-form{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-}
-
-.todo-form input {
-    flex: 1;
-    margin-right: 0.5rem;
-    border: var(--border);
-    border-radius: 3px;
-    padding: 1rem 1.5rem ;
-    font-size: 1.9rem;
-}
-
-/* todo liste */
-.todo-item{
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    margin-bottom: .5rem;
-    padding: .5rem 1.5rem;
-}
-
-.todo-item:nth-child(odd){
-    background-color: var(--background-light) ;
-
-}
-
-.todo-name{
-    flex: 1;
-    margin-right: 5px;
-    font-family: var(--font-2);
-    
-}
 
 /* footer */
 footer {
