@@ -13,7 +13,8 @@
     --text-color-light: #f1f2f6;
     --box-shadow: rgba(60, 64, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     --border: 1px solid #eee ;
-    --danger: #b54fa4;
+    --danger: #ae6ca3;
+    --box-shadow2: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 
@@ -92,9 +93,9 @@ a{
     background-color: var(--dark);
 } */
 
-.text-danger{
+.text-error{
     color: var(--danger);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -151,14 +152,12 @@ header {
 }
 
 .content {
-    margin-top: 3rem;
     max-width: 100rem;
     width: 100%;
     flex: 1;
     display: flex;
     flex-flow: column;
     align-self: center;
-    /* background-color: var(--color-font); */
     padding: 2rem 0 ;
     align-items: center;
 }
@@ -167,7 +166,7 @@ header {
     border-radius: 3px;
     border: var(--border);
     background-color:rgb(169, 183, 192);
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow2);
 }
 
 /* footer */
