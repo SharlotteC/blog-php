@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
 
 :root{
     --font-family: 'Courgette', 'sans serif';
-    --font-3: 'Nanum Gothic';
+    --font-3: 'Oswald';
     --color-font: #e8f4f9;
     --primary: #0f0f0f;
     --primary-dark: #23373c;
-    --dark: #304d55;
+    --dark: #89969a;;
     --background-light: #d8e3e9;
     --text-color:#2f3542;
     --text-color-light: #f1f2f6;
@@ -16,7 +16,6 @@
     --border: 1px solid #eee ;
     --danger: #ae6ca3;
     --box-shadow2: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
 }
 
 
@@ -162,6 +161,7 @@ header {
     padding: 2rem 0 ;
     align-items: center;
     font-family: var(--font-3);
+    
 }
 
 .block{
