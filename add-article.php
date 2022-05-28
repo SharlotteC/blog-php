@@ -6,7 +6,7 @@
     const ERROR_IMAGE_URL = "L'image doit etre une une url valide";
 
 
-    $filename = __DIR__. '/data/article.json';
+    $filename = __DIR__. '/data/articles.json';
     $articles = [];
 
     $errors = [
