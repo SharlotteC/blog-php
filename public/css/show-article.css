@@ -1,9 +1,9 @@
-.article-container{
+.article-container {
     padding-bottom: 10rem;
 }
 
 .article-cover-img{
-    height: 50rem;
+    height:60rem;
     width: 100%;
     background-size: cover;
     border-radius: 3px;
@@ -15,17 +15,26 @@
     font-size: 5rem;
     font-weight: 400;
 }
+
 .article-content{
     white-space: pre-wrap;
+    font-size: 1.8rem;
 }
+
 .article-back{
-    font-weight: 700;
     font-size: 1.4rem;
     text-decoration: underline;
     cursor: pointer;
     display: block;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 .article-back:hover {
     color: var(--dark);
+}
+
+.action{
+    margin-top: 4rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
