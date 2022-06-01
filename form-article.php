@@ -1,11 +1,27 @@
 <?php
+
+    
+    /**
+    * @var PDO
+     */
+
+    $pdo = require_once "./database.php";
+    $statementCreateOne = $pdo->prepare('
+        INSERT INTO article (title, category, content, image) VALUES (:title, :category, :content, :image)
+    ');
+    $statementUpdateOne = $pdo->prepare('
+        UPDATE article SET title=:title, category=:category, content=:content, image=:image WHERE id=:id  
+    ');
+    $statementReadOne = $pdo->prepare('SELECT * FROM article WHERE id=:id');
+    
+
     const ERROR_REQUIRED = "Veuillez renseigner ce champ";
     const ERROR_TITTLE_TOO_SHORT = "Le titre est trop court";
     const ERROR_CONTENT_TOO_SHORT = "L'article est trop court";
     const ERROR_IMAGE_URL = "L'image doit être une URL valide";
 
-    $filename = __DIR__."/data/articles.json";
-    $articles = [];
+    // $filename = __DIR__."/data/articles.json";
+    // $articles = [];
     $category = '';
 
 
@@ -16,16 +32,20 @@
         'content' => ''
     ];
 
-    if(file_exists($filename)){
-        $articles = json_decode(file_get_contents($filename), true) ?? [];
-    }
+    // if(file_exists($filename)){
+    //     $articles = json_decode(file_get_contents($filename), true) ?? [];
+    // }
     
     $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $id = $_GET['id'] ?? '';
 
     if($id) {
-        $articleIdx = array_search($id, array_column($articles,'id'));
-        $article = $articles[$articleIdx];
+        // $articleIdx = array_search($id, array_column($articles,'id'));
+        // $article = $articles[$articleIdx];
+
+        $statementReadOne->bindValue(':id', $id);
+        $statementReadOne->execute();
+        $article = $statementReadOne->fetch();
 
         $title = $article['title'];
         $image = $article['image'];
@@ -73,21 +93,30 @@
         if(empty(array_filter($errors, fn ($e) => $e !== ''))) {
 
             if($id) {
-                $articles[$articleIdx]['title'] = $title;
-                $articles[$articleIdx]['image'] = $image;
-                $articles[$articleIdx]['category'] = $category;
-                $articles[$articleIdx]['content'] = $content;
+                // $articles['title'] = $title;
+                // $articles['image'] = $image;
+                // $articles['category'] = $category;
+                // $articles['content'] = $content;
+
+                // on met a jour la base de données
+
+                $statementUpdateOne->bindValue(':title', $title);
+                $statementUpdateOne->bindValue(':category', $category);
+                $statementUpdateOne->bindValue(':content', $content);
+                $statementUpdateOne->bindValue(':image', $image);
+                $statementUpdateOne->bindValue(':id', $id);
+                $statementUpdateOne->execute();
+
             }else{
-                $articles = [...$articles, [
-                    'title' => $title,
-                    'image' => $image,
-                    'category' => $category,
-                    'content' => $content,
-                    'id' => time(),
-                ]];
+                $statementCreateOne->bindValue(':title', $title);
+                $statementCreateOne->bindValue(':category', $category);
+                $statementCreateOne->bindValue(':content', $content);
+                $statementCreateOne->bindValue(':image', $image);
+                $statementCreateOne->execute();
+                
             }
 
-            file_put_contents($filename, json_encode($articles));
+            // file_put_contents($filename, json_encode($articles));
             header('Location: /');
         }
     }
