@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <?php require_once 'includes/head.php'?>
-    <link rel="stylesheet" href="public/css/show-article.css">
+    <link rel="stylesheet" href="public/css/profile.css">
     <title>Ma page</title>
 </head>
 <body>
