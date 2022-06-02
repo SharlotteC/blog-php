@@ -1,27 +1,15 @@
 <?php
-
-    
     /**
-    * @var PDO
-     */
+ * @var ArticleDAO
+ */
 
-    $pdo = require_once "./database.php";
-    $statementCreateOne = $pdo->prepare('
-        INSERT INTO article (title, category, content, image) VALUES (:title, :category, :content, :image)
-    ');
-    $statementUpdateOne = $pdo->prepare('
-        UPDATE article SET title=:title, category=:category, content=:content, image=:image WHERE id=:id  
-    ');
-    $statementReadOne = $pdo->prepare('SELECT * FROM article WHERE id=:id');
-    
+$articleDAO = require_once'./database/models/ArticleDAO.php';
 
     const ERROR_REQUIRED = "Veuillez renseigner ce champ";
     const ERROR_TITTLE_TOO_SHORT = "Le titre est trop court";
     const ERROR_CONTENT_TOO_SHORT = "L'article est trop court";
     const ERROR_IMAGE_URL = "L'image doit être une URL valide";
 
-    // $filename = __DIR__."/data/articles.json";
-    // $articles = [];
     $category = '';
 
 
@@ -31,21 +19,12 @@
         'category' => '',
         'content' => ''
     ];
-
-    // if(file_exists($filename)){
-    //     $articles = json_decode(file_get_contents($filename), true) ?? [];
-    // }
     
     $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $id = $_GET['id'] ?? '';
 
     if($id) {
-        // $articleIdx = array_search($id, array_column($articles,'id'));
-        // $article = $articles[$articleIdx];
-
-        $statementReadOne->bindValue(':id', $id);
-        $statementReadOne->execute();
-        $article = $statementReadOne->fetch();
+        $article = $articleDAO->getOne($id);
 
         $title = $article['title'];
         $image = $article['image'];
@@ -93,30 +72,25 @@
         if(empty(array_filter($errors, fn ($e) => $e !== ''))) {
 
             if($id) {
-                // $articles['title'] = $title;
-                // $articles['image'] = $image;
-                // $articles['category'] = $category;
-                // $articles['content'] = $content;
 
-                // on met a jour la base de données
-
-                $statementUpdateOne->bindValue(':title', $title);
-                $statementUpdateOne->bindValue(':category', $category);
-                $statementUpdateOne->bindValue(':content', $content);
-                $statementUpdateOne->bindValue(':image', $image);
-                $statementUpdateOne->bindValue(':id', $id);
-                $statementUpdateOne->execute();
+                //on met a jour la base de données
+                $articleDAO->updateOne([
+                    'title'=>$title,
+                    'category'=>$category,
+                    'content'=>$content,
+                    'image'=>$image,
+                    'id'=>$id,
+                ]);
 
             }else{
-                $statementCreateOne->bindValue(':title', $title);
-                $statementCreateOne->bindValue(':category', $category);
-                $statementCreateOne->bindValue(':content', $content);
-                $statementCreateOne->bindValue(':image', $image);
-                $statementCreateOne->execute();
-                
+                //on crée un nouvel article
+                $articleDAO->createOne([
+                    'title'=>$title,
+                    'category'=>$category,
+                    'content'=>$content,
+                    'image'=>$image,
+                ]);   
             }
-
-            // file_put_contents($filename, json_encode($articles));
             header('Location: /');
         }
     }

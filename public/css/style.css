@@ -139,9 +139,12 @@ header {
 
 .header-menu{
     margin: 0;
+    display: flex;
+    flex-flow: row;
 }
 
 .header-menu li{
+    margin-left: 1rem;
     border-radius:3px;
     padding: 5px 15px;
     transition: background-color .3s;
