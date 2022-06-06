@@ -127,7 +127,7 @@ $articleDAO = require_once'./database/models/ArticleDAO.php';
                     <label for="category">Categorie</label>
                     <select type="text" name="category" id="category">
                         <option <?= !$category || $category === 'Film' ? 'selected' : '' ?> value="Film">Film</option>
-                        <option <?=  $category === "Série" ? 'selected' : '' ?> value="Série">Série</option>
+                        <option <?=  $category === "Serie" ? 'selected' : '' ?> value="Serie">Série</option>
                         <option <?=  $category === "Musique" ? 'selected' : '' ?> value="Musique">Musique</option>
                     </select>
                     <?php if($errors['category']) : ?>

@@ -4,7 +4,7 @@
     const ERROR_REQUIRED = 'Veuillez renseigner ce champ';
     const ERROR_TOO_SHORT = 'Ce champ est trop court';
     const ERROR_PASSWORD_TOO_SHORT = 'Le mot de passe est trop court';
-    const ERROR_EMAIL_INAVALIDE = 'Email invalide';
+    const ERROR_EMAIL_INAVALID = 'Email invalide';
     const ERROR_PASSWORD_MISMATCH = 'Les mots de passe ne correspondent pas';
 
     $errors = [
@@ -47,13 +47,13 @@
         if(!$email){
             $errors['email'] = ERROR_REQUIRED;
         } else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = ERROR_EMAIL_INAVALIDE;
+            $errors['email'] = ERROR_EMAIL_INAVALID;
         }
 
         if(!$password) {
             $errors['password'] = ERROR_REQUIRED;
         }else if(mb_strlen($password) < 6) {
-            $errors['password'] = ERROR_TOO_SHORT;
+            $errors['password'] = ERROR_PASSWORD_TOO_SHORT;
         }
 
         if(!$confirm_password) {
@@ -92,50 +92,49 @@
     <div class="container">
         <?php require_once 'includes/header.php' ?>
         <div class="content">
-                    <div class="block p-20 form-container">
+                <div class="block p-20 form-container">
                     <h1>Inscription</h1>
                         <form action="/auth-register.php" method="POST">
-                        <div class="form-control">
-                                <label for="firstname">Prénom</label>
-                                <input type="text" name="firstname" id="firstname" value="<?= $firstname?? '' ?>">
-                                <?php if($errors['firstname']) : ?>
-                                <p class="text-danger"><?= $errors['firstname'] ?></p> 
-                                <?php endif ?>
-                            </div>
                             <div class="form-control">
-                                <label for="lastname">Nom</label>
-                                <input type="text" name="lastname" id="lastname" value="<?= $lastname?? '' ?>">
-                                <?php if($errors['lastname']) : ?>
-                                <p class="text-danger"><?= $errors['lastname'] ?></p> 
-                                <?php endif ?>
-                            </div>
-                            <div class="form-control">
-                                <label for="email">Email</label>
-                                <input type="text" name="email" id="email" value="<?= $email?? '' ?>">
-                                <?php if($errors['email']) : ?>
-                                <p class="text-danger"><?= $errors['email'] ?></p> 
-                                <?php endif ?>
-                            </div>
-                            <div class="form-control">
-                                <label for="password">Mot de passe</label>
-                                <input type="text" name="password" id="password" value="<?= $password?? '' ?>">
-                                <?php if($errors['password']) : ?>
-                                <p class="text-danger"><?= $errors['password'] ?></p> 
-                                <?php endif ?>
-                            </div>
-                            <div class="form-control">
-                                <label for="confirm_password">Confirmation de mot de passe</label>
-                                <input type="text" name="confirm_password" id="confirm_password" value="<?= $confirm_password?? '' ?>">
-                                <?php if($errors['confirm_password']) : ?>
-                                <p class="text-danger"><?= $errors['confirm_password'] ?></p> 
-                                <?php endif ?>
-                            </div>
-
-                        <div class="form-action">
-                    <a href="/" class="btn btn-secondary" type="button">Annuler</a>
-                    <button class="btn btn-primary" type="submit"> Créer </button>
-                </div>
-            </form>
+                                    <label for="firstname">Prénom</label>
+                                    <input type="text" name="firstname" id="firstname" value="<?= $firstname?? '' ?>">
+                                    <?php if($errors['firstname']) : ?>
+                                    <p class="text-danger"><?= $errors['firstname'] ?></p> 
+                                    <?php endif ?>
+                                </div>
+                                <div class="form-control">
+                                    <label for="lastname">Nom</label>
+                                    <input type="text" name="lastname" id="lastname" value="<?= $lastname?? '' ?>">
+                                    <?php if($errors['lastname']) : ?>
+                                    <p class="text-danger"><?= $errors['lastname'] ?></p> 
+                                    <?php endif ?>
+                                </div>
+                                <div class="form-control">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" id="email" value="<?= $email?? '' ?>">
+                                    <?php if($errors['email']) : ?>
+                                    <p class="text-danger"><?= $errors['email'] ?></p> 
+                                    <?php endif ?>
+                                </div>
+                                <div class="form-control">
+                                    <label for="password">Mot de passe</label>
+                                    <input type="text" name="password" id="password" value="<?= $password?? '' ?>">
+                                    <?php if($errors['password']) : ?>
+                                    <p class="text-danger"><?= $errors['password'] ?></p> 
+                                    <?php endif ?>
+                                </div>
+                                <div class="form-control">
+                                    <label for="confirm_password">Confirmation de mot de passe</label>
+                                    <input type="text" name="confirm_password" id="confirm_password" value="<?= $confirm_password?? '' ?>">
+                                    <?php if($errors['confirm_password']) : ?>
+                                    <p class="text-danger"><?= $errors['confirm_password'] ?></p> 
+                                    <?php endif ?>
+                                </div>
+                            <div class="form-action">
+                        <a href="/" class="btn btn-secondary" type="button">Annuler</a>
+                        <button class="btn btn-primary" type="submit">Créer</button>
+                    </div>
+                </form>
             </div>
         </div>
         <?php require_once'includes/footer.php'?>
