@@ -1,7 +1,5 @@
 <?php
 
-$pdo = require_once __DIR__.'/../database.php';
-
 class ArticleDAO {
 
     
