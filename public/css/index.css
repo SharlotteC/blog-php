@@ -50,14 +50,32 @@
     cursor: pointer;
 }
 
+
 .article h3 {
-    font-size: 1.5rem;
-    padding: 1rem 1.5rem;
+    font-size: 2rem;
+    padding: .5rem 1.5rem;
 }
 
 .article:hover .img-container{
     transform: scale(1.4);
 }
+.article-author{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    margin-top: -1.5rem;
+}
+
+.article-author p {
+    font-size: 1.1rem;
+    font-style: italic;
+    font-family: var(--font-family);
+    color: var(--primary-dark);
+
+}
+
 .overflow{
     overflow: hidden;
 }

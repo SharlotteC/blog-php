@@ -31,7 +31,12 @@
 .article-back:hover {
     color: var(--dark);
 }
-
+.article-author{
+    text-align: right;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--primary-dark);
+}
 .action{
     margin-top: 4rem;
     display: flex;
