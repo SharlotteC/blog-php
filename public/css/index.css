@@ -46,14 +46,15 @@
 .article {
     flex: 30%;
     margin: 1rem;
-    min-height: 38rem;
+    min-height: 40rem;
     cursor: pointer;
 }
 
 
 .article h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     padding: .5rem 1.5rem;
+    margin-top: 1.2rem;
 }
 
 .article:hover .img-container{
@@ -64,8 +65,7 @@
     flex-flow: row;
     justify-content: flex-end;
     padding-right: 5px;
-    padding-bottom: 2px;
-    margin-top: -1.5rem;
+    padding-top: 5px;
 }
 
 .article-author p {

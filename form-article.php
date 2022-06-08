@@ -33,6 +33,9 @@
 
     if($id) {
         $article = $articleDAO->getOne($id);
+        if($article['author'] !== $currentUser['id']) {
+            header('Location /');
+        }
 
         $title = $article['title'];
         $image = $article['image'];

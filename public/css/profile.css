@@ -1,0 +1,26 @@
+.content{
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+.info-container ul li{
+    display: flex;
+}
+
+.info-container ul li strong {
+    margin-right: 5px;
+}
+.articles-list{
+    width: 100%;
+}
+
+.articles-list ul li{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    padding: 15px;
+    border-radius: 3px;
+    background-color: #d2dce2;
+    border: var(--border);
+
+}

@@ -7,7 +7,7 @@
     --font-3: 'Oswald';
     --color-font: #e8f4f9;
     --primary: #0f0f0f;
-    --primary-dark: #23373c;
+    --primary-dark: #253c42;
     --dark: #89969a;
     --background-light: #d8e3e9;
     --text-color:#2f3542;
@@ -141,17 +141,36 @@ header {
     margin: 0;
     display: flex;
     flex-flow: row;
+    align-items: center;
 }
 
 .header-menu li{
     margin-left: 1rem;
     border-radius:3px;
     padding: 5px 15px;
-    transition: background-color .3s;
+    transition: background-color .5s;
 }
 
 .header-menu li:hover{
     background-color: var(--primary-dark);
+}
+
+li.header-profile{
+    font-weight: 700;
+    background-color: var(--primary-dark);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color .5s;
+}
+li.header-profile:hover{
+    background-color: var(--text-color-light);
+    color: var(--primary-dark);
 }
 
 .active{

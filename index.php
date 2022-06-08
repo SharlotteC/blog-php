@@ -78,12 +78,12 @@
                             <div class="overflow">
                                 <div class="img-container" style=" background-image: url(<?= $article['image'] ?> )" ></div>
                             </div>
-                            <h3><?= $article['title'] ?></h3>
                             <?php if($article['author']) : ?>
                                 <div class="article-author">
                                     <p><?= $article['firstname'].' '.$article['lastname']  ?></p>
                                 </div>
                             <?php endif;?>
+                            <h3><?= $article['title'] ?></h3>
                         </a>
                     <?php endforeach; ?>
                 </div>
@@ -96,12 +96,12 @@
                             <div class="overflow">
                                 <div class="img-container" style=" background-image: url(<?= $article['image'] ?> )" ></div>
                             </div>
-                            <h3><?= $article['title'] ?></h3>
                             <?php if($article['author']) : ?>
                                 <div class="article-author">
                                     <p><?= $article['firstname'].' '.$article['lastname']  ?></p>
                                 </div>
                             <?php endif;?>
+                            <h3><?= $article['title'] ?></h3>
                         </a>
                     <?php endforeach; ?>
                 </div>
